@@ -1,4 +1,4 @@
-name := "untitled12222"
+name := "HelloWorld"
 
 version := "1.0"
 

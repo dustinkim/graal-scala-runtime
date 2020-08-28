@@ -1,0 +1,11 @@
+[info] Main Scala API documentation to D:\GitHub\graal-scala-runtime\target\scala-2.12\api...
+[debug] Getting org.scala-sbt:compiler-bridge_2.12:1.3.4:compile for Scala 2.12.8
+[debug] Calling Scaladoc with arguments:
+[debug] 	-d
+[debug] 	D:\GitHub\graal-scala-runtime\target\scala-2.12\api
+[debug] 	-bootclasspath
+[debug] 	C:\Users\Emphraim\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.12.8\scala-library-2.12.8.jar
+[debug] 	-classpath
+[debug] 	dummy_89e5926b
+[debug] 	D:\GitHub\graal-scala-runtime\src\main\scala\HelloWorld.scala
+[info] Main Scala API documentation successful.

@@ -1,7 +1,0 @@
-[debug] Packaging D:\GitHub\graal-scala-runtime\target\scala-2.12\untitled12222_2.12-1.0.jar ...
-[debug] Input file mappings:
-[debug] 	HelloWorld$.class
-[debug] 	  D:\GitHub\graal-scala-runtime\target\scala-2.12\classes\HelloWorld$.class
-[debug] 	HelloWorld.class
-[debug] 	  D:\GitHub\graal-scala-runtime\target\scala-2.12\classes\HelloWorld.class
-[debug] Done packaging.

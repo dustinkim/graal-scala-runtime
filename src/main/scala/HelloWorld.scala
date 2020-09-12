@@ -1,7 +1,7 @@
-object HelloWorld {
+object HelloWorld extends App {
 
 
-  def main(args: Array[String]): Unit = {
+  override def main(args: Array[String]): Unit = {
 
     println("Hello, world")
 

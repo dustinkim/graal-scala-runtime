@@ -5,7 +5,9 @@ version := "1.0"
 scalaVersion := "2.12.8"
 
 enablePlugins(GraalVMNativeImagePlugin)
-graalVMNativeImageGraalVersion := Some("19.1.1")
+// This is important, in order to avoid macro problems
+// See https://blog.playframework.com/play-on-graal/ for some mentions of an error with the invokedynamic bytecode instruction
+graalVMNativeImageGraalVersion := Some("20.2.0")
 
 scalacOptions in ThisBuild ++= Seq(
   "-deprecation", // Emit warning and location for usages of deprecated APIs.
@@ -46,6 +48,16 @@ scalacOptions in ThisBuild ++= Seq(
   "-Ywarn-value-discard" // Warn when non-Unit expression results are unused.
 )
 
+val catsVersion = "2.2.0"
 libraryDependencies ++= Seq(
-  "org.typelevel" %% "cats-core"   % "2.2.0",
-  "org.typelevel" %% "cats-effect" % "2.2.0")
+  "org.typelevel" %% "cats-core",
+  "org.typelevel" %% "cats-effect")
+  .map(_ % catsVersion)
+
+val circeVersion = "0.12.3"
+
+libraryDependencies ++= Seq(
+  "io.circe" %% "circe-core",
+  "io.circe" %% "circe-generic",
+  "io.circe" %% "circe-parser")
+  .map(_ % circeVersion)

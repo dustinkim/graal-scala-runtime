@@ -3,5 +3,6 @@ function handler () {
   echo "$EVENT_DATA" 1>&2;
   RESPONSE="Echoing request: '$EVENT_DATA'"
 
+  echo "Hello world, how's it going?"
   echo $RESPONSE
 }

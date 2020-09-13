@@ -33,9 +33,15 @@ abstract class LambdaFunction[Input: Decoder, Err: Encoder, Output: Encoder] {
         case Left(err) =>
           (RUNTIME_API_ADDRESS, INVOCATION_ID) match {
             case (Some(r), Some(i)) =>
-              s"""curl -sS -X POST $r/$i/error \\
-              | -d '${ParseError(arg, err.getMessage).asJson.toString}'
-              |""".stripMargin.!
+              Seq(
+                s"curl",
+                "-sS",
+                "-X",
+                "POST",
+                s"$r/$i/error",
+                "-d",
+                ParseError(arg, err.getMessage).asJson.toString
+                  .replace("\n", " ")).!
             case _ =>
               pprint.log(ParseError(arg, err.getMessage).asJson.toString)
           }
@@ -47,10 +53,10 @@ abstract class LambdaFunction[Input: Decoder, Err: Encoder, Output: Encoder] {
                 s"curl",
                 "-sS",
                 "-X",
-                "POST" ,
+                "POST",
                 s"$r/$i/error",
                 "-d",
-                "{\"key1\" : \"value1\",\"key2\" : \"value2\",\"key3\" : \"value3\"}").!
+                value.asJson.toString.replace("\n", " ")).!
             case _ => pprint.log(value.asJson.toString)
           }
           System.exit(1)
@@ -61,15 +67,14 @@ abstract class LambdaFunction[Input: Decoder, Err: Encoder, Output: Encoder] {
                 s"curl",
                 "-sS",
                 "-X",
-                "POST" ,
+                "POST",
                 s"$r/$i/response",
                 "-d",
-                "{\"key1\" : \"value1\",\"key2\" : \"value2\",\"key3\" : \"value3\"}").!
+                value.asJson.toString.replace("\n", " ")).!
             case _ => pprint.log(value.asJson.toString)
           }
           System.exit(0)
       }
       .unsafeRunSync()
-    // ${value.asJson.toString.replace("\n", " ")}
   }
 }

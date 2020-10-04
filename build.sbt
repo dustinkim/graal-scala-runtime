@@ -62,4 +62,5 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-parser")
   .map(_ % circeVersion)
 
-libraryDependencies += "com.lihaoyi" %% "pprint" % "0.5.6"
+libraryDependencies ++= Seq( "com.lihaoyi" %% "pprint" % "0.5.6",
+                    "com.softwaremill.sttp.client" %% "core" % "2.2.9")

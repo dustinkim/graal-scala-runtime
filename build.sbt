@@ -63,4 +63,6 @@ libraryDependencies ++= Seq(
   .map(_ % circeVersion)
 
 libraryDependencies ++= Seq( "com.lihaoyi" %% "pprint" % "0.5.6",
-                    "com.softwaremill.sttp.client" %% "core" % "2.2.9")
+                             "com.softwaremill.sttp.client" %% "core" % "2.2.9",
+                             "com.softwaremill.sttp.client" %% "async-http-client-backend-fs2" % "2.2.9",
+                             "co.fs2" %% "fs2-core" % "2.4.4")

@@ -5,6 +5,8 @@ version := "1.0"
 scalaVersion := "2.12.8"
 
 enablePlugins(GraalVMNativeImagePlugin)
+graalVMNativeImageOptions ++= Seq("--enable-http",
+                                  "--enable-https")
 // This is important, in order to avoid macro problems
 // See https://blog.playframework.com/play-on-graal/ for some mentions of an error with the invokedynamic bytecode instruction
 graalVMNativeImageGraalVersion := Some("20.2.0")
@@ -62,5 +64,7 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-parser")
   .map(_ % circeVersion)
 
-libraryDependencies ++= Seq( "com.lihaoyi" %% "pprint" % "0.5.6",
-                             "com.softwaremill.sttp.client" %% "core" % "2.2.9")
+libraryDependencies ++= Seq(
+  "com.lihaoyi" %% "pprint"              % "0.5.6",
+  "org.http4s"  %% "http4s-blaze-client" % "1.0.0-M4",
+  "org.http4s"  %% "http4s-circe"        % "1.0.0-M4")
